@@ -1,0 +1,20 @@
+name: CI Pipeline V2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Show Files
+        run: ls
+
+      - name: Build Message
+        run: echo "Build Successful V2 🚀"
