@@ -13,8 +13,11 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Show Files
-        run: ls
-
-      - name: Build Message
+      - name: Build
         run: echo "Build Successful V2 🚀"
+
+      - name: Slack Notification
+        run: |
+          curl -X POST -H 'Content-type: application/json' \
+          --data '{"text":"CI/CD Build Successful 🚀"}' \
+          ${{ secrets.SLACK_WEBHOOK_V2 }}
